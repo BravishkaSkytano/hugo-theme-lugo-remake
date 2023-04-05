@@ -1,0 +1,166 @@
+@import 'variables';
+@import 'mixins';
+@import 'grid';
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital@0;1&display=swap');
+
+:root {
+  scroll-behavior: smooth;
+  font-size: 100%;
+
+  &.default { @include spread-map($theme-map-default); }
+  &.morning {  @include spread-map($theme-map-morning); }
+  &.day { @include spread-map($theme-map-day); }
+  &.evening {  @include spread-map($theme-map-evening); }
+  &.night { @include spread-map($theme-map-night); }
+}
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  transition: all 250ms ease-in-out
+}
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: theme-var($--card); }
+::-webkit-scrollbar-thumb {
+  background: theme-var($--link);
+
+  &:hover { background: theme-var($--hover); }
+}
+
+body {
+  background: theme-var($--background);
+  color: theme-var($--paragraph);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1em;
+  line-height: 1.5;
+}
+
+@supports (font-size-adjust: 1) {
+  body {
+    font-size-adjust: 0.5;
+  }
+}
+
+main { padding: 1em; }
+
+h1, h2, h3, h4 { color: theme-var($--link); }
+
+h1 {
+  font-size: 2.5em;
+  line-height: calc(1ex / 0.42);
+  margin: calc(1ex / 0.42) 0;
+}
+
+h2 {
+  font-size: 2em;
+  line-height: calc(1ex / 0.42);
+  margin: calc(1ex / 0.42) 0;
+}
+
+h3 {
+  font-size: 1.75em;
+  line-height: calc(1ex / 0.38);
+  margin: calc(1ex / 0.38) 0;
+}
+
+h4 {
+  font-size: 1.5em;
+  line-height: calc(1ex / 0.37);
+  margin: calc(1ex / 0.37) 0;
+}
+
+.divider, h2, h3 {
+  display: flex;
+  align-items: flex-start;
+  text-align: left;
+
+  &:after {
+    content: '';
+    flex-grow: 1;
+    height: 1px;
+    background: var(--link);
+    min-width: 20px;
+    margin: auto;
+  }
+
+  &:after {
+    margin-left: 20px;
+  }
+}
+
+p {
+  font-size: 1em;
+  line-height: calc(1ex / 0.32);
+  margin: calc(1ex / 0.32) 0;
+}
+
+a {
+  text-decoration: none;
+  color: theme-var($--link);
+
+  &:hover *, &:focus * { color: theme-var($--hover); }
+
+  &.button {
+    border: 2px solid theme-var($--button);
+    color: theme-var($--button);
+    padding: 0.3em;
+    transition-duration: 0.4s;
+
+    &:hover, &:focus {
+      background: theme-var($--hover);
+      color: theme-var($--button);
+      text-decoration: none;
+    }
+  }
+}
+
+blockquote {
+  background: theme-var($--background);
+  padding: 20px 30px 20px 30px;
+  margin: 50px auto;
+  width: 75%;
+  max-width: 500px;
+  border: solid 2px theme-var($--link);
+  padding: 20px 30px 20px 30px;
+  box-shadow: 13px 13px 0 0 theme-var($--background),
+              15px 15px 0 0 theme-var($--link),
+              15px 11px 0 0 theme-var($--link),
+              11px 15px 0 0 theme-var($--link);
+
+  cite {
+    float: right;
+    &:before {
+      content: "~";
+      margin-right: 5px;
+    }
+  }
+
+  &:after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+}
+
+hr { border-color: theme-var($--link); }
+
+table, th, td {
+  padding: 0.3em;
+  border: 2px solid theme-var(--button);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+
+  th {
+    background: theme-var(--link);
+    color: theme-var(--background);
+  }
+}
+
+footer {
+  margin-top: 2em;
+  padding: 1.7em;
+}

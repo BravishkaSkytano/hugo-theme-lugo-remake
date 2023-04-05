@@ -1,0 +1,16 @@
+{{ define "title" -}}
+{{ .Title | title }}
+{{- end }}
+{{ define "main" -}}
+{{ .Content }}
+
+<h2 class="divider">Index</h2>
+{{ partial "postslist.html" . }}
+
+<h2 class="divider">Tags</h2>
+<div style="clear:both" class="taglist">
+{{ range .Site.Taxonomies.tags }}
+  <a class="button" href="{{ .Page.Permalink }}">{{ .Page.Title }} ({{ .Count }})</a>
+{{ end }}
+</div>
+{{- end }}

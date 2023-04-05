@@ -1,0 +1,9 @@
+{{ define "title" }}
+{{ .Title | title }}
+{{ end }}
+{{ define "main" }}
+{{ partial "meta.html" . }}
+{{ .Content }}
+<h2 class="divider">Index</h2>
+{{ partial "postslist.html" . }}
+{{ end }}

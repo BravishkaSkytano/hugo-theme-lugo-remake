@@ -1,0 +1,13 @@
+.columns {
+  display: grid;
+  width: 630px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-gap: 15px;
+
+  .column {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+  }
+}
